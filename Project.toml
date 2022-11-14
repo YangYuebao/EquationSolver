@@ -1,0 +1,4 @@
+name = "EquationSolver"
+uuid = "eae6dc0b-45c6-4225-8749-c5a801a40d6e"
+authors = ["Yang Yuebao <812987139@qq.com>"]
+version = "0.1.0"
