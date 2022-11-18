@@ -1,8 +1,9 @@
-using SparseArrays
+
 function LU_factorization(A;sparsed=false)
     #下三角L，Doolittle分解
     n,m=size(A)
-    L=Matrix{Float64}(I,n,n)
+    L=zeros(n,n)
+    for i=1:n L[i,i]=1 end
     U=zeros(n,m)
     U[1,:]=A[1,:]
     L[:,1]=A[:,1]/A[1,1]
