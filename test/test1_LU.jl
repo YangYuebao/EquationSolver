@@ -9,4 +9,4 @@ LUB=LU_factorization(B)
 C=rand(5,5)
 b=rand(5)
 
-LU_solve(C,b)
+x=LU_solve(C,b)
