@@ -29,7 +29,7 @@ function LU_solve(A, b)
     x = zeros(n)
     x[n] = y[n] / U[n, n]
     for i = n-1:-1:1
-        x[i] = (y[i] - U[i, i+1:n]' * x[i+1:n]) / U[i, i]
+        x[i] = (y[i] - sum(U[i, i+1:n] .* x[i+1:n])) / U[i, i]
     end
     return x
 end
@@ -53,11 +53,11 @@ function LU_solve(L, U, p, b)
     y[1] = b[1]
     x = zeros(n)
     for i = 2:n
-        y[i] = b[i] - L[i, 1:i-1]' * y[1:i-1]
+        y[i] = b[i] - sum(L[i, 1:i-1] .* y[1:i-1])
     end
     x[n] = y[n] / U[n, n]
     for i = n-1:-1:1
-        x[i] = (y[i] - U[i, i+1:n]' * x[i+1:n]) / U[i, i]
+        x[i] = (y[i] - sum(U[i, i+1:n] .* x[i+1:n])) / U[i, i]
     end
     return x
 end
